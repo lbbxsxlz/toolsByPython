@@ -16,3 +16,8 @@
 
 [code](zipCrackForcePower.py)
 
+
+使用词典破解zip的数字密码
+
+[code](zipCrackUseDict.py)
+
