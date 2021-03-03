@@ -1,7 +1,8 @@
 #!/usr/bin/python
-# author: libinbin1@dahuatech.com
 # force crack zip file
 #--------------------------------------------------
+__author__ = 'lbbxsxlz@gmail.com'
+
 import sys
 import time
 import zipfile
