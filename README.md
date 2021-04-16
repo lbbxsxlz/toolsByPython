@@ -21,6 +21,11 @@
 文件按行比对，生成html显示不同行<br>
 [code](diffFile.py)
 
-## showMAC
+## MAC地址显示
 显示MAC地址<br>
 [code](showMAC.py)
+
+## 以太网报文发送
+构建以太网报文发送<br>
+[code](sendEther.py)
+
