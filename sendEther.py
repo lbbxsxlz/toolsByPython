@@ -19,7 +19,6 @@ from socket import (
     AF_INET,
     SOCK_DGRAM,
     SOCK_RAW,
-    IPPROTO_RAW,
     socket,
 )
 
