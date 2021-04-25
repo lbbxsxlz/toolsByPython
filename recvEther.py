@@ -2,7 +2,7 @@
 # -*- encoding=utf8 -*-
 
 '''
-sudo python3 sendEther.py -i eth0 -t 22:63:29:6a:a2:b2 -T 0x1024 -d "hello world! Hi, lbbxsxlz!"
+sudo python3 recvEther.py
 '''
 
 import base64
@@ -13,28 +13,21 @@ from socket import (
     PF_PACKET,
     SOCK_RAW,
     socket,
+    htons,
 )
 
-rawSocket = socket(PF_PACKET,SOCK_RAW,htons(0x0800))
+rawSocket = socket(PF_PACKET, SOCK_RAW, htons(0x1024))
 
-pkt = rawSocket.recvfrom(2048)
+pkt = rawSocket.recvfrom(1514)
 
 ethernetHeader = pkt[0][0:14]   #提取以太网帧头
 eth_hdr = struct.unpack("!6s6s2s",ethernetHeader) #6字节目的mac地址，6字节源mac地址，2字节协议类型
 
-binascii.hexlify(eth_hdr[0])
-binascii.hexlify(eth_hdr[1])
-binascii.hexlify(eth_hdr[2])
+dstMac = binascii.hexlify(eth_hdr[0])
+srcMac = binascii.hexlify(eth_hdr[1])
+etherType = binascii.hexlify(eth_hdr[2])
 
-ipHeader = pkt[0][14:34]        #提取IP协议头，不包含option和padding字段。
-ip_hdr = struct.unpack("!12s4s4s",ipHeader)         # ！标示转换网络字节序，前12字节为版本、头部长度、服务类型、总长度、标志等其他选项，后面的两个四字节依次为源IP地址和目的IP地址。
-
-print "source IP address: " + inet_ntoa(ip_hdr[1])
-
-print "destination IP address: " + inet_ntoa(ip_hdr[2])
-
-tcpHeader = pkt[0][34:54]
-tcp_hdr = struct.unpack("!HH16s",tcpHeader)
-
-print tcp_hdr
-
+print(dstMac.decode('utf-8'))
+print(srcMac.decode('utf-8'))
+print(etherType.decode('utf-8'))
+print(pkt[0][14:-1].decode('utf-8'))
