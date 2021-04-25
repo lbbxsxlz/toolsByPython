@@ -29,3 +29,7 @@
 构建以太网报文发送<br>
 [code](sendEther.py)
 
+## 以太网报文接收
+处理特定的以太网报文(type决定)
+[code](recvEther.py)
+
