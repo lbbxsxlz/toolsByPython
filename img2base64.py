@@ -11,9 +11,14 @@ f = open(filename, 'rb')
 #读取文件内容，转换为base64编码
 ls_f = base64.b64encode(f.read()) 
 f.close()
-print(ls_f)
+#print(ls_f)
 
 [des_file, extname] = os.path.splitext(filename)
+txtfile = des_file + 'base64.txt'
+txt_f=open(txtfile, 'wb')
+txt_f.write(ls_f)
+txt_f.close()
+
 newfile = des_file + '_new' + extname
 imgdata=base64.b64decode(ls_f)
 file=open(newfile, 'wb')
