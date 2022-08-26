@@ -23,7 +23,7 @@
 
 ## MAC地址显示
 显示MAC地址<br>
-[code](showMAC.py)
+[code](showMac.py)
 
 ## 以太网报文发送
 构建以太网报文发送<br>
@@ -32,4 +32,7 @@
 ## 以太网报文接收
 处理特定的以太网报文(type决定)
 [code](recvEther.py)
+
+## 文件编码转换
+[code](conv-file.py)
 
