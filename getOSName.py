@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-# diff file
+# Get Os Name
 __author__ = 'lbbxsxlz@gmail.com'
 
 import platform
