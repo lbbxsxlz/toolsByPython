@@ -12,5 +12,6 @@ out = input.split('.')[0] + '1.jpg'
 im.save(out, quality=95)
 
 newSize = im.resize((272, 354))
+#newSize = im.resize((272, 354), Image.ANTIALIAS)
 newSize.save(output,quality=95)
 
